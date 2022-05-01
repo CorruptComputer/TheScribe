@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheScribe.GUI", "TheScribe.GUI\TheScribe.GUI.csproj", "{DB72E185-8156-4014-90E1-F71017E7895D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface", "Interface", "{C6543E7F-481D-483B-AEFE-73F9207F80F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{52803D43-3778-4E2E-9DE5-DBD1453237A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheScribe.Application", "TheScribe.Application\TheScribe.Application.csproj", "{8F575011-ABAF-4DBC-A37A-618EB30F7562}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AC29C5B6-EC06-48CB-B077-EF5F7D98032F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB72E185-8156-4014-90E1-F71017E7895D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB72E185-8156-4014-90E1-F71017E7895D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB72E185-8156-4014-90E1-F71017E7895D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB72E185-8156-4014-90E1-F71017E7895D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F575011-ABAF-4DBC-A37A-618EB30F7562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F575011-ABAF-4DBC-A37A-618EB30F7562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F575011-ABAF-4DBC-A37A-618EB30F7562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F575011-ABAF-4DBC-A37A-618EB30F7562}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB72E185-8156-4014-90E1-F71017E7895D} = {C6543E7F-481D-483B-AEFE-73F9207F80F4}
+		{8F575011-ABAF-4DBC-A37A-618EB30F7562} = {52803D43-3778-4E2E-9DE5-DBD1453237A2}
+	EndGlobalSection
+EndGlobal

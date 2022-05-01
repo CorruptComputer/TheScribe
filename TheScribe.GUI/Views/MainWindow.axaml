@@ -1,0 +1,97 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="TheScribe.GUI.Views.MainWindow"
+        Title="The Scribe">
+      <Window.Styles>
+    <Style Selector="TabControl">
+      <Setter Property="Background" Value="#F0F0F0"/>
+      <Setter Property="Height" Value="120"/>
+    </Style>
+    
+    <Style Selector="TabControl WrapPanel">
+      <Setter Property="Background" Value="#2B579A"/>
+    </Style>
+
+    <Style Selector="TabItem">
+      <Setter Property="FontSize" Value="12"/>
+      <Setter Property="Height" Value="34"/>
+      <Setter Property="VerticalAlignment" Value="Center"/>
+      <Setter Property="Background" Value="#2B579A"/>
+      <Setter Property="Foreground" Value="#F0F0F0"/>
+      <Setter Property="Margin" Value="0 0 0 0"/>
+      <Setter Property="Padding" Value="10 0"/>
+    </Style>
+    
+    <Style Selector="TabItem:pointerover">
+      <Setter Property="Background" Value="#21458F"/>
+      <Setter Property="Foreground" Value="#F0F0F0"/>
+    </Style>
+
+    <Style Selector="TabItem:focus">
+      <Setter Property="Background" Value="#1B478A"/>
+      <Setter Property="Foreground" Value="#F0F0F0"/>
+    </Style>
+
+    <Style Selector="TabItem:selected">
+      <Setter Property="Background" Value="#1B478A"/>
+      <Setter Property="Foreground" Value="#F0F0F0"/>
+    </Style>
+  </Window.Styles>
+
+  <TabControl Height="{Binding $parent.Height}" Width="{Binding $parent.Width}">
+    <TabItem Header="Backup" VerticalContentAlignment="Center">
+      <StackPanel>
+        <StackPanel Name="WarningPanel" Orientation="Horizontal" Background="orange" IsVisible="False">
+          <Image Source="avares://TheScribe.GUI/Assets/Uicons/exclamation.png" Height="30" Width="30" Margin="10 10 10 10" />
+          
+          <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+            <TextBlock FontSize="23" Padding="0 10 0 0">Warning:</TextBlock>
+            <TextBlock Name="WarningReason" FontSize="16" Padding="0 0 0 10">You shouldn't see this!</TextBlock>
+          </StackPanel>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+          <Button Name="BackupButton" Click="BackupButtonClicked">
+            <StackPanel>
+              <Image Source="avares://TheScribe.GUI/Assets/Uicons/disk.png" Height="60" Width="60" />
+              <TextBlock>Create New Backup</TextBlock>
+            </StackPanel>
+          </Button>
+          
+          <Button Name="RestoreButton" Click="RestoreButtonClicked">
+            <StackPanel>
+              <Image Source="avares://TheScribe.GUI/Assets/Uicons/time-past.png" Height="60" Width="60" />
+              <TextBlock>Restore from Backup</TextBlock>
+            </StackPanel>
+          </Button>
+        </StackPanel>
+      </StackPanel>
+    </TabItem>
+    
+    <TabItem Header="Settings" VerticalContentAlignment="Center" GotFocus="OnSettingsTabFocused">
+      <StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+          <TextBlock>Backup Location:</TextBlock>
+          <TextBox Name="BackupLocationSetting"></TextBox>
+        </StackPanel>
+        
+        <Button Name="SaveSettingsButton" Click="SaveSettingsButtonClicked">
+          <StackPanel Orientation="Horizontal">
+            <Image Source="avares://TheScribe.GUI/Assets/Uicons/disk.png" Height="30" Width="30" Margin="10 10 10 10" />
+            <TextBlock>Save Settings</TextBlock>
+          </StackPanel>
+        </Button>
+      </StackPanel>
+    </TabItem>
+    
+    <TabItem Header="About" VerticalContentAlignment="Center">
+      <StackPanel>
+        <TextBlock>Work in progress!</TextBlock>
+        <TextBlock>Icons: Uicons by Flaticon</TextBlock>
+      </StackPanel>
+    </TabItem>
+  </TabControl>
+</Window>
