@@ -1,0 +1,31 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base",
+        ":rebaseStalePrs",
+        ":prImmediately",
+        ":prHourlyLimitNone",
+        ":prConcurrentLimitNone",
+        ":automergeDisabled"
+    ],
+    "baseBranches": [
+        "main"
+    ],
+    "enabledManagers": [
+        "nuget"
+    ],
+    "packageRules": [
+        {
+            "matchPackagePatterns": [
+                "^FluentAssertions",
+                "^FluentValidation",
+                "^Microsoft.NET.Test.Sdk",
+                "^Moq",
+                "^SpecFlow",
+                "^SpecRun",
+                "^xunit"
+            ],
+            "groupName": "Testing Packages"
+        }
+    ]
+}
