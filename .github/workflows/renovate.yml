@@ -24,3 +24,6 @@ jobs:
 
     - name: Run Renovate
       run: renovate --platform=github --endpoint=https://api.github.com --token=${{ secrets.GITHUB_TOKEN }} CorruptComputer/TheScribe
+      env:
+        LOG_LEVEL: debug
+        DEBUG: true
