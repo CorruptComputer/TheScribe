@@ -7,21 +7,20 @@ on:
 
 jobs:
   renovate:
-    name: Renovate
+    name: Dependency Update
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
-    
+
     - name: Use Node.js 16
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
 
-        
     - name: Install Renovate
       run: npm install -g renovate
-      
+
     - name: Run Renovate
-      run: renovate --platform=github --token=${{ secrets.GITHUB_TOKEN }} CorruptComputer/TheScribe
+      run: renovate --platform=github --endpoint=https://github.com/api/v3 --token=${{ secrets.GITHUB_TOKEN }} CorruptComputer/TheScribe
