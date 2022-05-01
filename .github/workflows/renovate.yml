@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-
+  renovate:
+    name: Renovate
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +18,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
-        cache: 'npm'
+
         
     - name: Install Renovate
       run: npm install -g renovate
