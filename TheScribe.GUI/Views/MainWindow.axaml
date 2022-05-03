@@ -5,7 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="TheScribe.GUI.Views.MainWindow"
         Title="The Scribe">
-      <Window.Styles>
+  <Window.Styles>
     <Style Selector="TabControl">
       <Setter Property="Background" Value="#F0F0F0"/>
       <Setter Property="Height" Value="120"/>
@@ -42,8 +42,9 @@
   </Window.Styles>
 
   <TabControl Height="{Binding $parent.Height}" Width="{Binding $parent.Width}">
-    <TabItem Header="Backup" VerticalContentAlignment="Center">
+    <TabItem Header="Backup" VerticalContentAlignment="Center" GotFocus="OnBackupTabFocused">
       <StackPanel>
+        <!-- Warning panel -->
         <StackPanel Name="WarningPanel" Orientation="Horizontal" Background="orange" IsVisible="False">
           <Image Source="avares://TheScribe.GUI/Assets/Uicons/exclamation.png" Height="30" Width="30" Margin="10 10 10 10" />
           
@@ -53,6 +54,11 @@
           </StackPanel>
         </StackPanel>
         
+        <!-- Game select -->
+        <ComboBox Name="GameSelect" SelectionChanged="OnGameSelectionChanged"></ComboBox>
+        
+        
+        <!-- Backup/Restore Buttons -->
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
           <Button Name="BackupButton" Click="BackupButtonClicked">
             <StackPanel>
@@ -68,6 +74,9 @@
             </StackPanel>
           </Button>
         </StackPanel>
+        
+        <!-- Backup list -->
+        <ListBox Name="BackupsList" SelectionMode="Single"></ListBox>
       </StackPanel>
     </TabItem>
     

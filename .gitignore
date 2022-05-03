@@ -419,6 +419,8 @@ FodyWeavers.xsd
 .idea/**/indexLayout.xml
 .idea/**/projectSettingsUpdater.xml
 .idea/**/vcs.xml
+.idea/**/avalonia.xml
+.idea/**/.gitignore
 
 # Sensitive or high-churn files
 .idea/**/dataSources/

@@ -93,6 +93,11 @@ public class ConfigurationManager
     }
     #endregion
 
+    public Games GetGames()
+    {
+        return _games;
+    }
+    
     public Settings GetSettings()
     {
         return _settings;

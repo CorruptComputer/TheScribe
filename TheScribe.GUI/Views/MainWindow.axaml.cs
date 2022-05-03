@@ -1,6 +1,11 @@
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Enumeration;
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Serilog;
 using TheScribe.Application;
 using TheScribe.Application.Model;
 
@@ -11,6 +16,8 @@ namespace TheScribe.GUI.Views
         private readonly StackPanel _warningPanel;
         private readonly TextBlock _warningReason;
         private readonly TextBox _backupLocationSetting;
+        private readonly ComboBox _gamesSelector;
+        private readonly ListBox _backupsList;
 
         private ConfigurationManager _configurationManager;
         
@@ -21,11 +28,41 @@ namespace TheScribe.GUI.Views
             _warningPanel = this.Find<StackPanel>("WarningPanel");
             _warningReason = this.Find<TextBlock>("WarningReason");
             _backupLocationSetting = this.Find<TextBox>("BackupLocationSetting");
+            _gamesSelector = this.Find<ComboBox>("GameSelect");
+            _backupsList = this.Find<ListBox>("BackupsList");
 
             _configurationManager = new ConfigurationManager();
+
+            PopulateGamesList();
         }
 
         #region Backup Tab
+        private void PopulateGamesList()
+        {
+            // TODO: There is probably a better way to do this.
+            List<string> names = new();
+            
+            foreach (Game game in _configurationManager.GetGames().SupportedGames)
+            {
+                names.Add(game.Name);
+            }
+            
+            _gamesSelector.Items = names;
+            Log.Information($"Loaded {names.Count} games from configuration.");
+        }
+        
+        private void OnGameSelectionChanged(object? sender, SelectionChangedEventArgs e)
+        {
+            string selectedGame = (string) _gamesSelector.SelectedItem;
+            string backupLocation = _configurationManager.GetSettings().BackupLocation;
+            Backups.GetBackupListForGame(selectedGame, backupLocation);
+        }
+        
+        private void OnBackupTabFocused(object? sender, GotFocusEventArgs e)
+        {
+            // Change items shown in backups list
+        }
+        
         private void ShowWarning(string message)
         {
             _warningPanel.IsVisible = true;
